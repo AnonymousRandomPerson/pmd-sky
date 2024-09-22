@@ -70,7 +70,7 @@ def read_xmap_symbols_for_language(language: str) -> Dict[str, Dict[int, SymbolD
                 if current_section is not None and is_ram:
                     current_section = 'ram'
                 if current_section is not None and current_section not in xmap_symbols:
-                    xmap_symbols[current_section]: Dict[str, int] = {}
+                    xmap_symbols[current_section] = {}
 
             elif current_section is not None and line.startswith('  ') and ('.text' in line or '.data' in line or '.bss' in line) and len(line) > 28 and line[28] not in NON_FUNCTION_SYMBOLS:
                 symbol_split = line[28:-1].split('\t')
