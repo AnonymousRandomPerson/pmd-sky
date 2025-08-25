@@ -56698,11 +56698,11 @@ _0230B204: .word 0x000004B6 + GET_EXCLUSIVE_ITEM_REQUIREMENTS_OFFSET
 _0230B208: .word 0x000004B7 + GET_EXCLUSIVE_ITEM_REQUIREMENTS_OFFSET
 	arm_func_end GetExclusiveItemRequirements
 
-	arm_func_start ov11_0230B20C
-ov11_0230B20C: ; 0x0230B20C
+	arm_func_start SwapShopInventoryManager
+SwapShopInventoryManager: ; 0x0230B20C
 	stmdb sp!, {r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #0x20
-	ldr r2, _0230B664 ; =ov11_02324DA4
+	ldr r2, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r4, r0
 	ldr r0, [r2, #4]
 	mov r8, r1
@@ -56714,15 +56714,15 @@ ov11_0230B20C: ; 0x0230B20C
 	ldr r0, _0230B670 ; =0x000046D4
 	mov r1, #8
 	bl MemAlloc
-	ldr r1, _0230B664 ; =ov11_02324DA4
+	ldr r1, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	str r0, [r1, #4]
 _0230B24C:
-	ldr r0, _0230B664 ; =ov11_02324DA4
+	ldr r0, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	str r4, [r0]
 	bl ov11_0230BF98
 	bl LoadSynthBin
-	ldr sb, _0230B664 ; =ov11_02324DA4
+	ldr sb, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r2, #0
 	ldr r3, [sb, #4]
 	mov r1, #0x10
@@ -56830,13 +56830,13 @@ _0230B3D4:
 	ldr r2, [r0, #4]
 	cmp sl, r2
 	blt _0230B38C
-	ldr r1, _0230B664 ; =ov11_02324DA4
+	ldr r1, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	add r0, sp, #0x14
 	ldr r1, [r1, #4]
 	add r1, r1, #0x4600
 	strh r2, [r1, #0x26]
 	bl sub_020114F8
-	ldr r1, _0230B664 ; =ov11_02324DA4
+	ldr r1, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r0, r8, lsl #0x10
 	ldr r2, [r1, #4]
 	mov r3, r0, asr #0x10
@@ -56874,7 +56874,7 @@ _0230B428:
 _0230B474:
 	cmp r4, #0
 	bne _0230B5A8
-	ldr r0, _0230B664 ; =ov11_02324DA4
+	ldr r0, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #6
 	ldrsh r2, [r0]
 	ldr r0, [r0, #4]
@@ -56884,7 +56884,7 @@ _0230B474:
 	ldrh r0, [sb, r8]
 	add sl, sb, r8
 	bl ov11_0230C9EC
-	ldr r1, _0230B664 ; =ov11_02324DA4
+	ldr r1, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	str r0, [sp, #0x18]
 	ldrh r0, [r1]
 	bl ov11_0230C970
@@ -56894,7 +56894,7 @@ _0230B474:
 	movne r0, #0
 	strneh r0, [sp, #0x1e]
 	bne _0230B4E8
-	ldr r0, _0230B664 ; =ov11_02324DA4
+	ldr r0, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldrh r1, [sl, #2]
 	ldr r0, [r0, #4]
 	add r0, r0, r1, lsl #3
@@ -56904,7 +56904,7 @@ _0230B474:
 _0230B4E8:
 	add r0, sp, #0x18
 	bl ov11_0230AE10
-	ldr r0, _0230B664 ; =ov11_02324DA4
+	ldr r0, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	add r1, sp, #0x12
 	ldr r2, [r0, #4]
 	ldrsh r8, [r0]
@@ -56913,7 +56913,7 @@ _0230B4E8:
 	mov r0, #0
 	strh r8, [r3, #0xd0]
 	bl ov11_0230C1D0
-	ldr fp, _0230B664 ; =ov11_02324DA4
+	ldr fp, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldrh r2, [sp, #0x12]
 	ldr r0, [fp, #4]
 	ldrh r1, [sp, #0x10]
@@ -56954,7 +56954,7 @@ _0230B5A0:
 	cmp sl, r8
 	blt _0230B538
 _0230B5A8:
-	ldr r8, _0230B664 ; =ov11_02324DA4
+	ldr r8, _0230B664 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, r5
 	ldr sb, [r8, #4]
 	mov r3, r7
@@ -57003,7 +57003,7 @@ _0230B65C:
 	add sp, sp, #0x20
 	ldmia sp!, {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_0230B664: .word ov11_02324DA4
+_0230B664: .word SWAP_SHOP_INVENTORY_PTRS
 _0230B668: .word 0x00401A33
 _0230B66C: .word ov11_0230BD5C
 _0230B670: .word 0x000046D4
@@ -57022,19 +57022,19 @@ _0230B684: .word ov11_0230B78C
 _0230B688: .word ov11_0230BE34
 _0230B68C: .word ov11_02322FE4
 _0230B690: .word ov11_0230BF38
-	arm_func_end ov11_0230B20C
+	arm_func_end SwapShopInventoryManager
 
 	arm_func_start ov11_0230B694
 ov11_0230B694: ; 0x0230B694
 	stmdb sp!, {r4, lr}
-	ldr r0, _0230B71C ; =ov11_02324DA4
+	ldr r0, _0230B71C ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _0230B6BC
 	ldr r0, _0230B720 ; =0x000046D4
 	mov r1, #8
 	bl MemAlloc
-	ldr r1, _0230B71C ; =ov11_02324DA4
+	ldr r1, _0230B71C ; =SWAP_SHOP_INVENTORY_PTRS
 	str r0, [r1, #4]
 _0230B6BC:
 	bl LoadSynthBin
@@ -57044,7 +57044,7 @@ _0230B6BC:
 	bl ov11_0230C61C
 	mov r0, #0
 	bl sub_020130B8
-	ldr r1, _0230B71C ; =ov11_02324DA4
+	ldr r1, _0230B71C ; =SWAP_SHOP_INVENTORY_PTRS
 	cmp r4, #0
 	ldr r1, [r1, #4]
 	add r1, r1, #0x4600
@@ -57053,41 +57053,41 @@ _0230B6BC:
 	beq _0230B6F8
 	bl CloseSynthBin
 _0230B6F8:
-	ldr r0, _0230B71C ; =ov11_02324DA4
+	ldr r0, _0230B71C ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	bl MemFree
-	ldr r1, _0230B71C ; =ov11_02324DA4
+	ldr r1, _0230B71C ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r0, #0
 	str r0, [r1, #4]
 	cmp r4, #0
 	movne r0, #1
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_0230B71C: .word ov11_02324DA4
+_0230B71C: .word SWAP_SHOP_INVENTORY_PTRS
 _0230B720: .word 0x000046D4
 	arm_func_end ov11_0230B694
 
 	arm_func_start ov11_0230B724
 ov11_0230B724: ; 0x0230B724
 	stmdb sp!, {r4, lr}
-	ldr r0, _0230B784 ; =ov11_02324DA4
+	ldr r0, _0230B784 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _0230B74C
 	ldr r0, _0230B788 ; =0x000046D4
 	mov r1, #8
 	bl MemAlloc
-	ldr r1, _0230B784 ; =ov11_02324DA4
+	ldr r1, _0230B784 ; =SWAP_SHOP_INVENTORY_PTRS
 	str r0, [r1, #4]
 _0230B74C:
 	bl ov11_0230BF98
 	bl ov11_0230C4D4
-	ldr r0, _0230B784 ; =ov11_02324DA4
+	ldr r0, _0230B784 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r1, r0, #0x4600
 	ldrh r4, [r1, #0x26]
 	bl MemFree
-	ldr r0, _0230B784 ; =ov11_02324DA4
+	ldr r0, _0230B784 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #0
 	str r1, [r0, #4]
 	cmp r4, #0
@@ -57095,14 +57095,14 @@ _0230B74C:
 	and r0, r1, #0xff
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_0230B784: .word ov11_02324DA4
+_0230B784: .word SWAP_SHOP_INVENTORY_PTRS
 _0230B788: .word 0x000046D4
 	arm_func_end ov11_0230B724
 
 	arm_func_start ov11_0230B78C
 ov11_0230B78C: ; 0x0230B78C
 	stmdb sp!, {r3, r4, r5, lr}
-	ldr r1, _0230B870 ; =ov11_02324DA4
+	ldr r1, _0230B870 ; =SWAP_SHOP_INVENTORY_PTRS
 	tst r0, #0x400
 	ldr r4, [r1, #4]
 	beq _0230B868
@@ -57148,7 +57148,7 @@ _0230B834:
 	mov r0, #2
 	bl PlaySeVolumeWrapper
 _0230B83C:
-	ldr r0, _0230B870 ; =ov11_02324DA4
+	ldr r0, _0230B870 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, [r0, #4]
 	add r0, r1, #0x4000
 	ldr r0, [r0, #0x6c8]
@@ -57164,13 +57164,13 @@ _0230B868:
 	mov r0, #0
 	ldmia sp!, {r3, r4, r5, pc}
 	.align 2, 0
-_0230B870: .word ov11_02324DA4
+_0230B870: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230B78C
 
 	arm_func_start ov11_0230B874
 ov11_0230B874: ; 0x0230B874
 	stmdb sp!, {r3, lr}
-	ldr r1, _0230B8BC ; =ov11_02324DA4
+	ldr r1, _0230B8BC ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r0, #0
 	ldr ip, [r1, #4]
 	mov r3, r0
@@ -57190,13 +57190,13 @@ _0230B8B0:
 	blt _0230B898
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230B8BC: .word ov11_02324DA4
+_0230B8BC: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230B874
 
 	arm_func_start ov11_0230B8C0
 ov11_0230B8C0: ; 0x0230B8C0
 	stmdb sp!, {r3, r4, r5, lr}
-	ldr r1, _0230B910 ; =ov11_02324DA4
+	ldr r1, _0230B910 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r4, r0
 	ldr r0, [r1, #4]
 	add r0, r0, #0x1400
@@ -57206,7 +57206,7 @@ ov11_0230B8C0: ; 0x0230B8C0
 	mov r0, r5, lsl #0x10
 	mov r0, r0, lsr #0x10
 	bl ov11_0230C970
-	ldr r1, _0230B910 ; =ov11_02324DA4
+	ldr r1, _0230B910 ; =SWAP_SHOP_INVENTORY_PTRS
 	strh r0, [r4]
 	ldr r0, [r1, #4]
 	add r0, r0, r5, lsl #1
@@ -57216,18 +57216,18 @@ ov11_0230B8C0: ; 0x0230B8C0
 	ldrsh r0, [r4]
 	ldmia sp!, {r3, r4, r5, pc}
 	.align 2, 0
-_0230B910: .word ov11_02324DA4
+_0230B910: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230B8C0
 
 	arm_func_start ov11_0230B914
 ov11_0230B914: ; 0x0230B914
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230B954 ; =ov11_02324DA4
+	ldr r0, _0230B954 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
 	ldrsb r0, [r0, #0xe4]
 	bl sub_0202D0EC
-	ldr r1, _0230B954 ; =ov11_02324DA4
+	ldr r1, _0230B954 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r0, r0, lsl #0x10
 	ldr r2, [r1, #4]
 	mov r1, r0, lsr #0x10
@@ -57238,18 +57238,18 @@ ov11_0230B914: ; 0x0230B914
 	bl ov11_0230C9EC
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230B954: .word ov11_02324DA4
+_0230B954: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230B914
 
 	arm_func_start ov11_0230B958
 ov11_0230B958: ; 0x0230B958
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230B9B8 ; =ov11_02324DA4
+	ldr r0, _0230B9B8 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
 	ldrsb r0, [r0, #0xe4]
 	bl sub_0202D0EC
-	ldr r2, _0230B9B8 ; =ov11_02324DA4
+	ldr r2, _0230B9B8 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, r0, lsl #0x10
 	mov r3, r1, lsr #0x10
 	ldr ip, [r2, #4]
@@ -57268,20 +57268,20 @@ ov11_0230B958: ; 0x0230B958
 	ldrh r0, [r0, #0xea]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230B9B8: .word ov11_02324DA4
+_0230B9B8: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230B958
 
 	arm_func_start ov11_0230B9BC
 ov11_0230B9BC: ; 0x0230B9BC
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230BA60 ; =ov11_02324DA4
+	ldr r0, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	ldmeqia sp!, {r3, pc}
 	bl ov11_0230AED0
 	bl ov11_0230CAE4
 	bl ov11_0230CA38
-	ldr r0, _0230BA60 ; =ov11_02324DA4
+	ldr r0, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x4000
 	ldrb r0, [r0, #0x6c4]
@@ -57289,7 +57289,7 @@ ov11_0230B9BC: ; 0x0230B9BC
 	beq _0230B9F8
 	bl CloseSynthBin
 _0230B9F8:
-	ldr r0, _0230BA60 ; =ov11_02324DA4
+	ldr r0, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	mvn r1, #1
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
@@ -57297,34 +57297,34 @@ _0230B9F8:
 	cmp r0, r1
 	beq _0230BA44
 	bl sub_0202D0EC
-	ldr r1, _0230BA60 ; =ov11_02324DA4
+	ldr r1, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	strh r0, [r1]
 	ldr r0, [r1, #4]
 	add r0, r0, #0x1400
 	ldrsb r0, [r0, #0xe4]
 	bl sub_0202836C
-	ldr r0, _0230BA60 ; =ov11_02324DA4
+	ldr r0, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
 	ldrsb r0, [r0, #0xe4]
 	bl CloseCollectionMenu
 _0230BA44:
-	ldr r0, _0230BA60 ; =ov11_02324DA4
+	ldr r0, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	bl MemFree
-	ldr r0, _0230BA60 ; =ov11_02324DA4
+	ldr r0, _0230BA60 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #0
 	str r1, [r0, #4]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230BA60: .word ov11_02324DA4
+_0230BA60: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230B9BC
 
 	arm_func_start ov11_0230BA64
 ov11_0230BA64: ; 0x0230BA64
 	stmdb sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
-	ldr r0, _0230BB18 ; =ov11_02324DA4
+	ldr r0, _0230BB18 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r4, [r0, #4]
 	cmp r4, #0
 	moveq r0, #0
@@ -57371,13 +57371,13 @@ _0230BB10:
 	add sp, sp, #8
 	ldmia sp!, {r3, r4, r5, pc}
 	.align 2, 0
-_0230BB18: .word ov11_02324DA4
+_0230BB18: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230BA64
 
 	arm_func_start ov11_0230BB1C
 ov11_0230BB1C: ; 0x0230BB1C
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230BB94 ; =ov11_02324DA4
+	ldr r0, _0230BB94 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	addne r0, r0, #0x1400
@@ -57386,35 +57386,35 @@ ov11_0230BB1C: ; 0x0230BB1C
 	cmpne r0, r1
 	ldmeqia sp!, {r3, pc}
 	bl sub_0202D0EC
-	ldr r1, _0230BB94 ; =ov11_02324DA4
+	ldr r1, _0230BB94 ; =SWAP_SHOP_INVENTORY_PTRS
 	strh r0, [r1]
 	bl ov11_0230CA38
 	bl ov11_0230CAE4
-	ldr r0, _0230BB94 ; =ov11_02324DA4
+	ldr r0, _0230BB94 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
 	ldrsb r0, [r0, #0xe4]
 	bl sub_0202836C
-	ldr r0, _0230BB94 ; =ov11_02324DA4
+	ldr r0, _0230BB94 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
 	ldrsb r0, [r0, #0xe4]
 	bl CloseCollectionMenu
-	ldr r0, _0230BB94 ; =ov11_02324DA4
+	ldr r0, _0230BB94 ; =SWAP_SHOP_INVENTORY_PTRS
 	mvn r1, #1
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1000
 	strb r1, [r0, #0x4e4]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230BB94: .word ov11_02324DA4
+_0230BB94: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230BB1C
 
 	arm_func_start ov11_0230BB98
 ov11_0230BB98: ; 0x0230BB98
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #0xc
-	ldr r0, _0230BCD8 ; =ov11_02324DA4
+	ldr r0, _0230BCD8 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r2, [r0, #4]
 	cmp r2, #0
 	beq _0230BCD0
@@ -57441,7 +57441,7 @@ _0230BBF0:
 	ldr r3, _0230BCEC ; =ov11_0230BE34
 	orr r1, r1, r0
 _0230BC00:
-	ldr ip, _0230BCD8 ; =ov11_02324DA4
+	ldr ip, _0230BCD8 ; =SWAP_SHOP_INVENTORY_PTRS
 	add r2, r2, #0x4000
 	ldrsh r4, [ip]
 	ldr r0, _0230BCF0 ; =ov11_02322FE4
@@ -57454,7 +57454,7 @@ _0230BC00:
 	add r2, r2, #0x4400
 	stmib sp, {ip, lr}
 	bl CreateCollectionMenu
-	ldr r2, _0230BCD8 ; =ov11_02324DA4
+	ldr r2, _0230BCD8 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, [r2, #4]
 	add r1, r1, #0x1000
 	strb r0, [r1, #0x4e4]
@@ -57466,7 +57466,7 @@ _0230BC00:
 	ldrsb r0, [r0, #0xe4]
 	mov r1, #1
 	bl SetCollectionMenuField0x1C8
-	ldr r0, _0230BCD8 ; =ov11_02324DA4
+	ldr r0, _0230BCD8 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, _0230BCF4 ; =ov11_0230BF38
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1400
@@ -57474,7 +57474,7 @@ _0230BC00:
 	bl SetCollectionMenuField0x1A4
 	bl ov11_0230CAA4
 	bl ov11_0230C9F8
-	ldr r0, _0230BCD8 ; =ov11_02324DA4
+	ldr r0, _0230BCD8 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r4, [r0, #4]
 	ldr r0, [r4]
 	cmp r0, #3
@@ -57499,7 +57499,7 @@ _0230BCD0:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_0230BCD8: .word ov11_02324DA4
+_0230BCD8: .word SWAP_SHOP_INVENTORY_PTRS
 _0230BCDC: .word 0x00401833
 _0230BCE0: .word ov11_0230BD5C
 _0230BCE4: .word 0x80040004
@@ -57512,7 +57512,7 @@ _0230BCF4: .word ov11_0230BF38
 	arm_func_start ov11_0230BCF8
 ov11_0230BCF8: ; 0x0230BCF8
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230BD24 ; =ov11_02324DA4
+	ldr r0, _0230BD24 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	addne r0, r0, #0x1400
@@ -57523,13 +57523,13 @@ ov11_0230BCF8: ; 0x0230BCF8
 	bl sub_0202C620
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230BD24: .word ov11_02324DA4
+_0230BD24: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230BCF8
 
 	arm_func_start ov11_0230BD28
 ov11_0230BD28: ; 0x0230BD28
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230BD58 ; =ov11_02324DA4
+	ldr r0, _0230BD58 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	addne r0, r0, #0x1400
@@ -57541,7 +57541,7 @@ ov11_0230BD28: ; 0x0230BD28
 	bl IsCollectionMenuState3
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230BD58: .word ov11_02324DA4
+_0230BD58: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230BD28
 
 	arm_func_start ov11_0230BD5C
@@ -57554,7 +57554,7 @@ ov11_0230BD5C: ; 0x0230BD5C
 	mov r0, r1, lsr #0x10
 	mov r4, r2
 	bl ov11_0230C970
-	ldr r1, _0230BE28 ; =ov11_02324DA4
+	ldr r1, _0230BE28 ; =SWAP_SHOP_INVENTORY_PTRS
 	strh r0, [sp, #4]
 	ldr r3, [r1, #4]
 	mov r1, #1
@@ -57586,7 +57586,7 @@ _0230BDEC:
 	mov r0, r6
 	bl sub_0200D670
 _0230BDF4:
-	ldr r1, _0230BE28 ; =ov11_02324DA4
+	ldr r1, _0230BE28 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r0, #6
 	ldr r1, [r1, #4]
 	mla r0, r5, r0, r1
@@ -57600,7 +57600,7 @@ _0230BDF4:
 	add sp, sp, #0x58
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_0230BE28: .word ov11_02324DA4
+_0230BE28: .word SWAP_SHOP_INVENTORY_PTRS
 _0230BE2C: .word ov11_02323004
 _0230BE30: .word ov11_0232300C
 	arm_func_end ov11_0230BD5C
@@ -57609,7 +57609,7 @@ _0230BE30: .word ov11_0232300C
 ov11_0230BE34: ; 0x0230BE34
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r3, _0230BF28 ; =ov11_02324DA4
+	ldr r3, _0230BF28 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r5, r1
 	mov r1, r5, lsl #0x10
 	mov r6, r0
@@ -57624,7 +57624,7 @@ ov11_0230BE34: ; 0x0230BE34
 	moveq r0, #0
 	beq _0230BF20
 	bl ov11_0230C970
-	ldr r1, _0230BF28 ; =ov11_02324DA4
+	ldr r1, _0230BF28 ; =SWAP_SHOP_INVENTORY_PTRS
 	strh r0, [sp, #4]
 	ldr r0, [r1, #4]
 	add r1, sp, #0
@@ -57661,7 +57661,7 @@ _0230BEE8:
 _0230BEEC:
 	mov r0, r6
 	bl strcat
-	ldr r1, _0230BF28 ; =ov11_02324DA4
+	ldr r1, _0230BF28 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r0, #6
 	ldr r1, [r1, #4]
 	mla r0, r5, r0, r1
@@ -57676,7 +57676,7 @@ _0230BF20:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_0230BF28: .word ov11_02324DA4
+_0230BF28: .word SWAP_SHOP_INVENTORY_PTRS
 _0230BF2C: .word ov11_02323014
 _0230BF30: .word ov11_0232302C
 _0230BF34: .word ov11_02323048
@@ -57685,7 +57685,7 @@ _0230BF34: .word ov11_02323048
 	arm_func_start ov11_0230BF38
 ov11_0230BF38: ; 0x0230BF38
 	stmdb sp!, {r3, lr}
-	ldr r3, _0230BF8C ; =ov11_02324DA4
+	ldr r3, _0230BF8C ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r2, r2, lsl #0x10
 	ldr ip, [r3, #4]
 	mov r3, r2, lsr #0x10
@@ -57707,7 +57707,7 @@ _0230BF7C:
 	bl sub_0202A03C
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230BF8C: .word ov11_02324DA4
+_0230BF8C: .word SWAP_SHOP_INVENTORY_PTRS
 #if defined(EUROPE)
 _0230BF90: .word 0x0000032F
 _0230BF94: .word 0x00004642
@@ -57724,7 +57724,7 @@ _0230BF94: .word 0x00004623
 ov11_0230BF98: ; 0x0230BF98
 	stmdb sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, #0
-	ldr r3, _0230C048 ; =ov11_02324DA4
+	ldr r3, _0230C048 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r2, _0230C04C ; =0x0000042C
 	mov r0, r4
 _0230BFAC:
@@ -57738,7 +57738,7 @@ _0230BFAC:
 	strb r0, [r1, #0xb8]
 	cmp r4, r2
 	blt _0230BFAC
-	ldr r2, _0230C048 ; =ov11_02324DA4
+	ldr r2, _0230C048 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r5, #0
 _0230BFDC:
 	ldr r1, [r2, #4]
@@ -57752,7 +57752,7 @@ _0230BFDC:
 	strh r5, [r1, #0x46]
 	cmp r0, #0x3e8
 	blt _0230BFDC
-	ldr r7, _0230C048 ; =ov11_02324DA4
+	ldr r7, _0230C048 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r6, _0230C04C ; =0x0000042C
 	mov r4, #0
 _0230C014:
@@ -57770,7 +57770,7 @@ _0230C014:
 	blt _0230C014
 	ldmia sp!, {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_0230C048: .word ov11_02324DA4
+_0230C048: .word SWAP_SHOP_INVENTORY_PTRS
 _0230C04C: .word 0x0000042C
 	arm_func_end ov11_0230BF98
 
@@ -57842,7 +57842,7 @@ _0230C114: .word 0xFFFFFE06
 	arm_func_start ov11_0230C118
 ov11_0230C118: ; 0x0230C118
 	stmdb sp!, {r3, r4, r5, r6, r7, r8, sb, lr}
-	ldr r6, _0230C1CC ; =ov11_02324DA4
+	ldr r6, _0230C1CC ; =SWAP_SHOP_INVENTORY_PTRS
 	mov lr, #0
 	ldr r7, [r6, #4]
 	mov r4, lr
@@ -57892,7 +57892,7 @@ _0230C1AC:
 	strneh r4, [r2]
 	ldmia sp!, {r3, r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_0230C1CC: .word ov11_02324DA4
+_0230C1CC: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230C118
 
 	arm_func_start ov11_0230C1D0
@@ -58111,7 +58111,7 @@ _0230C4AC:
 	cmp r4, r8
 	blt _0230C468
 _0230C4B4:
-	ldr r0, _0230C4D0 ; =ov11_02324DA4
+	ldr r0, _0230C4D0 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x4600
 	strh sb, [r0, #0x28]
@@ -58119,7 +58119,7 @@ _0230C4B4:
 	.align 2, 0
 _0230C4C8: .word BAG_ITEMS_PTR_MIRROR
 _0230C4CC: .word 0x000003F5
-_0230C4D0: .word ov11_02324DA4
+_0230C4D0: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230C3CC
 
 	arm_func_start ov11_0230C4D4
@@ -58131,7 +58131,7 @@ ov11_0230C4D4: ; 0x0230C4D4
 	mov sb, r8
 	mov r4, #6
 	ldr r6, _0230C594 ; =BAG_ITEMS_PTR_MIRROR
-	ldr r5, _0230C598 ; =ov11_02324DA4
+	ldr r5, _0230C598 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr fp, _0230C59C ; =0x0000018F
 	b _0230C578
 _0230C4FC:
@@ -58170,14 +58170,14 @@ _0230C574:
 _0230C578:
 	cmp sb, r7
 	blt _0230C4FC
-	ldr r0, _0230C598 ; =ov11_02324DA4
+	ldr r0, _0230C598 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x4600
 	strh r8, [r0, #0x26]
 	ldmia sp!, {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
 _0230C594: .word BAG_ITEMS_PTR_MIRROR
-_0230C598: .word ov11_02324DA4
+_0230C598: .word SWAP_SHOP_INVENTORY_PTRS
 _0230C59C: .word 0x0000018F
 	arm_func_end ov11_0230C4D4
 
@@ -58186,7 +58186,7 @@ ov11_0230C5A0: ; 0x0230C5A0
 	stmdb sp!, {r4, lr}
 	cmp r2, #0
 	beq _0230C5EC
-	ldr r3, _0230C618 ; =ov11_02324DA4
+	ldr r3, _0230C618 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov lr, #0
 	ldr r4, [r3, #4]
 	b _0230C5E4
@@ -58205,7 +58205,7 @@ _0230C5E4:
 	cmp lr, r2
 	blt _0230C5BC
 _0230C5EC:
-	ldr ip, _0230C618 ; =ov11_02324DA4
+	ldr ip, _0230C618 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r3, [ip, #4]
 	add r3, r3, r2, lsl #1
 	add r3, r3, #0x3600
@@ -58217,7 +58217,7 @@ _0230C5EC:
 	strh r1, [r2, #0x16]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_0230C618: .word ov11_02324DA4
+_0230C618: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230C5A0
 
 	arm_func_start ov11_0230C61C
@@ -58226,7 +58226,7 @@ ov11_0230C61C: ; 0x0230C61C
 	ldr r4, _0230C8DC ; =0x000001FA
 	mov r5, #0
 _0230C628:
-	ldr r0, _0230C8E0 ; =ov11_02324DA4
+	ldr r0, _0230C8E0 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr lr, [r0, #4]
 	add r0, lr, #0x4600
 	ldrh ip, [r0, #0x28]
@@ -58372,7 +58372,7 @@ _0230C834:
 	mov r2, r1, lsr #0x10
 	mov r1, #0
 	bl ov11_0230C924
-	ldr r0, _0230C8E0 ; =ov11_02324DA4
+	ldr r0, _0230C8E0 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #0
 	ldr r0, [r0, #4]
 	add r0, r0, r5, lsl #1
@@ -58384,7 +58384,7 @@ _0230C86C:
 	add r4, r4, #4
 	cmp r4, r0
 	blt _0230C628
-	ldr r0, _0230C8E0 ; =ov11_02324DA4
+	ldr r0, _0230C8E0 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0xe6
 	add r0, r0, #0x4500
@@ -58405,14 +58405,14 @@ _0230C8A0:
 _0230C8C0:
 	cmp r7, r6
 	blt _0230C8A0
-	ldr r0, _0230C8E0 ; =ov11_02324DA4
+	ldr r0, _0230C8E0 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r0, [r0, #4]
 	add r0, r0, #0x4600
 	strh r5, [r0, #0x26]
 	ldmia sp!, {r3, r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
 _0230C8DC: .word 0x000001FA
-_0230C8E0: .word ov11_02324DA4
+_0230C8E0: .word SWAP_SHOP_INVENTORY_PTRS
 _0230C8E4: .word 0x000002FE
 _0230C8E8: .word 0x000001BD
 _0230C8EC: .word 0x000001BE
@@ -58428,12 +58428,12 @@ _0230C90C: .word 0x000003F6
 
 	arm_func_start ov11_0230C910
 ov11_0230C910: ; 0x0230C910
-	ldr r0, _0230C920 ; =ov11_02324DA4
+	ldr r0, _0230C920 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #0
 	strh r1, [r0]
 	bx lr
 	.align 2, 0
-_0230C920: .word ov11_02324DA4
+_0230C920: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230C910
 
 	arm_func_start ov11_0230C924
@@ -58441,7 +58441,7 @@ ov11_0230C924: ; 0x0230C924
 	stmdb sp!, {r3, lr}
 	mov r3, #6
 	mul lr, r0, r3
-	ldr r3, _0230C96C ; =ov11_02324DA4
+	ldr r3, _0230C96C ; =SWAP_SHOP_INVENTORY_PTRS
 	mov ip, #0
 	ldr r0, [r3, #4]
 	add r0, r0, lr
@@ -58457,14 +58457,14 @@ ov11_0230C924: ; 0x0230C924
 	strb ip, [r0, #0x4ea]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230C96C: .word ov11_02324DA4
+_0230C96C: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230C924
 
 	arm_func_start ov11_0230C970
 ov11_0230C970: ; 0x0230C970
 	stmdb sp!, {r3, lr}
 	mov r1, #6
-	ldr r2, _0230C9E8 ; =ov11_02324DA4
+	ldr r2, _0230C9E8 ; =SWAP_SHOP_INVENTORY_PTRS
 	mul r1, r0, r1
 	ldr r3, [r2, #4]
 	add r0, r3, #0xe6
@@ -58497,7 +58497,7 @@ _0230C9E0:
 	ldrsh r0, [r1, #2]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230C9E8: .word ov11_02324DA4
+_0230C9E8: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230C970
 
 	arm_func_start ov11_0230C9EC
@@ -58510,7 +58510,7 @@ ov11_0230C9EC: ; 0x0230C9EC
 	arm_func_start ov11_0230C9F8
 ov11_0230C9F8: ; 0x0230C9F8
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230CA2C ; =ov11_02324DA4
+	ldr r0, _0230CA2C ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, [r0, #4]
 	add r0, r1, #0x4000
 	ldr r0, [r0, #0x6cc]
@@ -58523,7 +58523,7 @@ ov11_0230C9F8: ; 0x0230C9F8
 	bl sub_0204707C
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230CA2C: .word ov11_02324DA4
+_0230CA2C: .word SWAP_SHOP_INVENTORY_PTRS
 _0230CA30: .word ov11_02322FF4
 _0230CA34: .word ov11_0230CA7C
 	arm_func_end ov11_0230C9F8
@@ -58531,7 +58531,7 @@ _0230CA34: .word ov11_0230CA7C
 	arm_func_start ov11_0230CA38
 ov11_0230CA38: ; 0x0230CA38
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230CA78 ; =ov11_02324DA4
+	ldr r0, _0230CA78 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, [r0, #4]
 	add r0, r1, #0x4000
 	ldr r0, [r0, #0x6cc]
@@ -58540,14 +58540,14 @@ ov11_0230CA38: ; 0x0230CA38
 	add r0, r1, #0x2cc
 	add r0, r0, #0x4400
 	bl sub_02047150
-	ldr r0, _0230CA78 ; =ov11_02324DA4
+	ldr r0, _0230CA78 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #0
 	ldr r0, [r0, #4]
 	add r0, r0, #0x4000
 	str r1, [r0, #0x6cc]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230CA78: .word ov11_02324DA4
+_0230CA78: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230CA38
 
 	arm_func_start ov11_0230CA7C
@@ -58572,7 +58572,7 @@ _0230CAA0: .word 0x000003A9
 	arm_func_start ov11_0230CAA4
 ov11_0230CAA4: ; 0x0230CAA4
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230CAD8 ; =ov11_02324DA4
+	ldr r0, _0230CAD8 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, [r0, #4]
 	add r0, r1, #0x4000
 	ldr r0, [r0, #0x6c8]
@@ -58585,7 +58585,7 @@ ov11_0230CAA4: ; 0x0230CAA4
 	bl sub_0204707C
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230CAD8: .word ov11_02324DA4
+_0230CAD8: .word SWAP_SHOP_INVENTORY_PTRS
 _0230CADC: .word ov11_02322FD4
 _0230CAE0: .word ov11_0230CB28
 	arm_func_end ov11_0230CAA4
@@ -58593,7 +58593,7 @@ _0230CAE0: .word ov11_0230CB28
 	arm_func_start ov11_0230CAE4
 ov11_0230CAE4: ; 0x0230CAE4
 	stmdb sp!, {r3, lr}
-	ldr r0, _0230CB24 ; =ov11_02324DA4
+	ldr r0, _0230CB24 ; =SWAP_SHOP_INVENTORY_PTRS
 	ldr r1, [r0, #4]
 	add r0, r1, #0x4000
 	ldr r0, [r0, #0x6c8]
@@ -58602,14 +58602,14 @@ ov11_0230CAE4: ; 0x0230CAE4
 	add r0, r1, #0x2c8
 	add r0, r0, #0x4400
 	bl sub_02047150
-	ldr r0, _0230CB24 ; =ov11_02324DA4
+	ldr r0, _0230CB24 ; =SWAP_SHOP_INVENTORY_PTRS
 	mov r1, #0
 	ldr r0, [r0, #4]
 	add r0, r0, #0x4000
 	str r1, [r0, #0x6c8]
 	ldmia sp!, {r3, pc}
 	.align 2, 0
-_0230CB24: .word ov11_02324DA4
+_0230CB24: .word SWAP_SHOP_INVENTORY_PTRS
 	arm_func_end ov11_0230CAE4
 
 	arm_func_start ov11_0230CB28
@@ -58620,7 +58620,7 @@ ov11_0230CB28: ; 0x0230CB28
 	add r0, sp, #4
 	bl InitPreprocessorArgs
 	bl ov11_0230B874
-	ldr r1, _0230CB84 ; =ov11_02324DA4
+	ldr r1, _0230CB84 ; =SWAP_SHOP_INVENTORY_PTRS
 	str r0, [sp, #0x28]
 	ldr r0, [r1, #4]
 #ifdef JAPAN
@@ -58650,7 +58650,7 @@ ov11_0230CB28: ; 0x0230CB28
 	add sp, sp, #0x54
 	ldmia sp!, {r3, r4, pc}
 	.align 2, 0
-_0230CB84: .word ov11_02324DA4
+_0230CB84: .word SWAP_SHOP_INVENTORY_PTRS
 #ifdef JAPAN
 _0230E130: .word 0x000032B4
 #endif
@@ -81881,9 +81881,9 @@ ov11_023230EC:
 	.global ov11_023230FC
 ov11_023230FC:
 	.byte 0x19, 0x00, 0x00, 0x00
-	.word ov21_0238B848
-	.word ov21_0238B8FC
-	.word ov21_0238B928
+	.word SwapShopEntryPoint
+	.word SwapShopDestructor
+	.word SwapShopMainManager
 	.global ov11_0232310C
 ov11_0232310C:
 	.byte 0x1A, 0x00, 0x00, 0x00
@@ -83034,8 +83034,8 @@ ov11_02324D98:
 	.global ov11_02324DA0
 ov11_02324DA0:
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global ov11_02324DA4
-ov11_02324DA4:
+	.global SWAP_SHOP_INVENTORY_PTRS
+SWAP_SHOP_INVENTORY_PTRS:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global ov11_02324DAC
 ov11_02324DAC:

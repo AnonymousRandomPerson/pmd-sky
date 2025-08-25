@@ -277,9 +277,6 @@
 .public ov20_0238A150
 .public ov20_0238A160
 .public ov20_0238A1B0
-.public ov21_0238B848
-.public ov21_0238B8FC
-.public ov21_0238B928
 .public ov22_0238D640
 .public ov22_0238D7B0
 .public ov22_0238D800
@@ -802,6 +799,9 @@
 .public sub_0206C134
 .public sub_0206C144
 .public sub_0206C164
+.public SwapShopDestructor
+.public SwapShopEntryPoint
+.public SwapShopMainManager
 .public SwitchAnimationControlToNextFrame
 .public TEAM_MEMBER_TABLE_PTR
 .public TRIG_TABLE
