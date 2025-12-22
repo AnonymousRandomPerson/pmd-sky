@@ -465,6 +465,7 @@
 .public sub_0203931C
 .public DebugPrintEventFlagSize
 .public SetSpecialEpisodeOpenOld
+.public CopyFrameTypeOption
 .public sub_0204CDB8
 .public sub_0204E154
 .public sub_0204E19C
