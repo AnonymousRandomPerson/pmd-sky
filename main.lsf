@@ -41,8 +41,6 @@ Static main
 	Object src/item_util_1.o
 	Object asm/main_0200E7E8.o
 	Object src/item_util_2.o
-	Object asm/main_0200E864.o
-	Object src/item_util_3.o
 	Object asm/main_0200EB30.o
 	Object src/main_0200ECFC.o
 	Object asm/main_0200ED1C.o
@@ -78,7 +76,9 @@ Static main
 	Object asm/main_02034974.o
 	Object src/main_0203C760.o
 	Object asm/main_0203C774.o
+	Object asm/main_bss_020B3380.o
 	Object src/options.o
+	Object asm/main_bss_022AB0AC.o
 	Object src/game_mode.o
 	Object src/script_variable.o
 	Object asm/main_rodata_0209CECC.o
@@ -96,6 +96,8 @@ Static main
 	Object asm/main_0204DB08.o
 	Object src/main_0204DD80.o
 	Object asm/main_0204DE7C.o
+	Object src/dungeon_init.o
+	Object asm/main_0204EFE0.o
 	Object src/number_util.o
 	Object asm/main_02051098.o
 	Object src/main_020512B0.o
