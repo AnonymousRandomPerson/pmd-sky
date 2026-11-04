@@ -3500,13 +3500,13 @@ _0232C2B4:
 _0232C2E4: .word ov02_02356D44
 	arm_func_end Nnsi_SndPlayerAllocSeqPlayer
 
-	arm_func_start Nnsi_SndPlayerFreeSeqPlayer__0232CB14
-Nnsi_SndPlayerFreeSeqPlayer__0232CB14: ; 0x0232C2E8
+	arm_func_start Nnsi_SndPlayerFreeSeqPlayer
+Nnsi_SndPlayerFreeSeqPlayer: ; 0x0232C2E8
 	ldr ip, _0232C2F0 ; =ShutdownPlayer__0232CD9C
 	bx ip
 	.align 2, 0
 _0232C2F0: .word ShutdownPlayer__0232CD9C
-	arm_func_end Nnsi_SndPlayerFreeSeqPlayer__0232CB14
+	arm_func_end Nnsi_SndPlayerFreeSeqPlayer
 
 	arm_func_start Nnsi_SndPlayerStartSeq
 Nnsi_SndPlayerStartSeq: ; 0x0232C2F4
@@ -5242,7 +5242,7 @@ StartSeqArc: ; 0x0232D8CC
 	cmp r0, #0
 	beq _0232D940
 	mov r0, r5
-	bl Nnsi_SndPlayerFreeSeqPlayer__0232CB14
+	bl Nnsi_SndPlayerFreeSeqPlayer
 	add sp, sp, #8
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
