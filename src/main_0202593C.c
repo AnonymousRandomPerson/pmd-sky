@@ -6,10 +6,10 @@
 u8* strcpy(u8* dest, u8* src);
 u8* strncpy(u8* dest, u8* src, u32 n);
 
-extern u16 _022A59B8[];
-extern u8 _022A5A08[];
+extern u16 TEMP_ALLOCATED_BUFFER_CONTROLLER[];
+extern u8 TEMP_ALLOCATED_BUFFER_ZONE[];
 
-extern s8 GetLanguage(); 
+extern s8 GetLanguage();
 extern s8 _020AFCEC;
 extern const char * _020AFCF0[10];
 extern struct file_stream _022A59C0;
@@ -18,11 +18,11 @@ void FileClose(struct file_stream* file);
 
 void sub_020257FC(void)
 {
-    MemZero((u8 *)_022A59B8, 8);
+    MemZero((u8 *)TEMP_ALLOCATED_BUFFER_CONTROLLER, 8);
     LoadStringFile();
 }
 
-void LoadStringFile(void) 
+void LoadStringFile(void)
 {
     s8 temp_r0;
 
@@ -42,10 +42,10 @@ void LoadStringFile(void)
 
 u8* AllocateTemp1024ByteBufferFromPool(void)
 {
-    u16 scratch_1 = _022A59B8[2];
-    _022A59B8[2]=scratch_1 + 1;
-    _022A59B8[2] &= 7;
-    return &_022A5A08[scratch_1*0x400];
+    u16 scratch_1 = TEMP_ALLOCATED_BUFFER_CONTROLLER[2];
+    TEMP_ALLOCATED_BUFFER_CONTROLLER[2]=scratch_1 + 1;
+    TEMP_ALLOCATED_BUFFER_CONTROLLER[2] &= 7;
+    return &TEMP_ALLOCATED_BUFFER_ZONE[scratch_1*0x400];
 }
 
 void GetStringFromFileVeneer(u8* buf,s32 string_id)

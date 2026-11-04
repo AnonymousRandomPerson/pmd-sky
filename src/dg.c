@@ -134,8 +134,8 @@ extern void ov29_022E1604(void);
 extern void ov29_022E1640(void);
 extern void ov29_022E2B68(bool8 param_1);
 extern void ov29_022E2DFC(struct entity *entity);
-extern void ov29_022E3A58(bool8 param_1);
-extern void ov29_022E6E40(void);
+extern void UpdateStatusIconFlagsAllMonsters(bool8 param_1);
+extern void FreeAllMonsterMoveEffects(void);
 extern void ov29_022E6F94(void);
 extern void ov29_022E8708(void);
 extern void ov29_022E8BFC(bool8 value);
@@ -369,7 +369,7 @@ s32 RunDungeon(struct dungeon_init *dungeon_init_data, struct dungeon *dungeon)
     ov29_022E8104();
     ov29_022E7F7C();
     ov29_022E1304();
-    ov29_022E6E40();
+    FreeAllMonsterMoveEffects();
     ov29_022FE4A8();
     ov29_023480FC();
     ov29_022DDE00(2);
@@ -692,7 +692,7 @@ s32 RunDungeon(struct dungeon_init *dungeon_init_data, struct dungeon *dungeon)
             ov29_022FA524();
         }
 
-        ov29_022E3A58(1);
+        UpdateStatusIconFlagsAllMonsters(1);
 
         if (init_field_0x4 == 0)
         {
